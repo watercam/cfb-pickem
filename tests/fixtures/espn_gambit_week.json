@@ -1,0 +1,353 @@
+{
+  "currentScoringPeriod": {
+    "id": 1,
+    "abbrev": "Wk1",
+    "label": "Week 1"
+  },
+  "defaultGroupSettings": {
+    "scoringFormatId": 1
+  },
+  "propositions": [
+    {
+      "id": "ee7d3760-592d-11f1-9f21-bf39e498b3db",
+      "name": "BAY @ AUB",
+      "date": 1788637620000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Baylor",
+          "abbrev": "BAY",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.08237829946784286,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Auburn",
+          "abbrev": "AUB",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.9176217005321572,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aace1930-592d-11f1-803c-c57af355fd63",
+      "name": "UCLA @ CAL",
+      "date": 1788661800000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "UCLA",
+          "abbrev": "UCLA",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.793644572550133,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "California",
+          "abbrev": "CAL",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.20635542744986698,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b78a2e0-592d-11f1-9faa-c3495999c3c1",
+      "name": "CLEM @ LSU",
+      "date": 1788651000000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2,
+        3
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Clemson",
+          "abbrev": "CLEM",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.10025700618536418,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "LSU",
+          "abbrev": "LSU",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.8997429938146358,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b5528d90-592e-11f1-9faa-c3495999c3c1",
+      "name": "SMU @ FSU",
+      "date": 1788823800000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "SMU",
+          "abbrev": "SMU",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.5918697280653581,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Florida State",
+          "abbrev": "FSU",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.4081302719346419,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00de91b0-592e-11f1-803c-c57af355fd63",
+      "name": "LOU @ MISS",
+      "date": 1788737400000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Louisville",
+          "abbrev": "LOU",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.06281434911242603,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Ole Miss",
+          "abbrev": "MISS",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.937185650887574,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf24d020-592e-11f1-9faa-c3495999c3c1",
+      "name": "BC @ CIN",
+      "date": 1788636960000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Boston College",
+          "abbrev": "BC",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.05478334008286346,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Cincinnati",
+          "abbrev": "CIN",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.9452166599171365,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfca6620-592d-11f1-9faa-c3495999c3c1",
+      "name": "UNLV @ HAW",
+      "date": 1788660000000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "UNLV",
+          "abbrev": "UNLV",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.8257723050334845,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Hawai'i",
+          "abbrev": "HAW",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.17422769496651544,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd279600-592d-11f1-9f21-bf39e498b3db",
+      "name": "WYO @ CSU",
+      "date": 1788646140000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Wyoming",
+          "abbrev": "WYO",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.21107955775810333,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Colorado State",
+          "abbrev": "CSU",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.7889204422418966,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95e62920-592f-11f1-803c-c57af355fd63",
+      "name": "WKU @ NEV",
+      "date": 1788661800000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Western Kentucky",
+          "abbrev": "WKU",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.5563201413951648,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Nevada",
+          "abbrev": "NEV",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.4436798586048351,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "992fc0c0-592d-11f1-9faa-c3495999c3c1",
+      "name": "TULN @ DUKE",
+      "date": 1788642420000,
+      "scoringPeriodId": 1,
+      "scoringFormatIds": [
+        1,
+        2
+      ],
+      "possibleOutcomes": [
+        {
+          "name": "Tulane",
+          "abbrev": "TULN",
+          "subType": "AWAY",
+          "choiceCounters": [
+            {
+              "percentage": 0.08439768275039894,
+              "scoringFormatId": 1
+            }
+          ]
+        },
+        {
+          "name": "Duke",
+          "abbrev": "DUKE",
+          "subType": "HOME",
+          "choiceCounters": [
+            {
+              "percentage": 0.9156023172496011,
+              "scoringFormatId": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

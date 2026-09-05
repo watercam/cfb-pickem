@@ -1,0 +1,26 @@
+# Weekly ESPN College Football Pick'em (confidence mode).
+# Decision time is now. Do not use opening line.
+
+horizons:
+  reference_hours: 72
+
+odds_api:
+  sport: americanfootball_ncaaf
+  markets: [h2h, spreads]
+  regions: [eu]
+  preferred_bookmaker: pinnacle
+  allow_book_fallback: false
+  odds_format: american
+  snapshot_grid_minutes: 5
+
+calibration:
+  source: none                 # handwritten | matrix_csv | none
+  matrix_csv: data/outputs/line_movement_matrix.csv
+  clamp_min: 0.01
+  clamp_max: 0.99
+  max_adjustment: 0.03
+
+slate:
+  espn_challenge_url: https://gambit-api.fantasy.espn.com/apis/v1/challenges/college-football-pickem-2026?platform=chui&view=allon
+  dashboard_url: https://cfb-pickem-845.netlify.app
+  confidence_points: 10

@@ -1,0 +1,22 @@
+# Overlay on config/backtest.yaml. V1 24h/72h artifacts stay frozen.
+# python -m src.backtest.run --experiment late_line
+
+experiment: late_line
+
+snapshot_horizons_hours: [1, 24, 72]
+
+clocks:
+  L:
+    decision_horizon_hours: 1
+    reference_horizon_hours: 24
+  S:
+    decision_horizon_hours: 24
+    reference_horizon_hours: 72
+
+odds_api:
+  allow_historical_fetch: false
+  # Cap applies to *missing* T-1h GETs, not already-cached V1 timestamps.
+  max_historical_requests: 8000
+
+paths:
+  outputs: data/outputs/experiment_late_line

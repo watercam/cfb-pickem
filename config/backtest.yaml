@@ -1,0 +1,94 @@
+# MVP V1 settings from the line-movement backtest spec (section 34).
+# Phase 2 horizons and features stay listed but disabled until V1 shows signal.
+
+mvp:
+  seasons: [2021, 2022, 2023, 2024, 2025]
+  include_2020: false          # toggle later; V1 ignores 2020 even if cache has it
+  population: fbs_vs_fbs
+  sharp_source: pinnacle
+  decision_horizon_hours: 24
+  reference_horizon_hours: 72
+  modeling_side: favorite      # rows with current_probability >= 0.50
+  features:
+    current_no_vig_moneyline: true
+    spread_move: true
+    moneyline_move: false
+    recent_move: false
+    movement_velocity: false
+    key_numbers: false
+    market_breadth: false
+
+run:
+  default_mode: cache_only     # cache_only | fetch_missing
+  # cache_only succeeds with missing keys if processed/raw caches exist
+
+odds_api:
+  sport: americanfootball_ncaaf
+  markets: [h2h, spreads]
+  regions: [eu]                # Pinnacle is an eu-region book on Odds API
+  preferred_bookmaker: pinnacle
+  allow_book_fallback: false
+  odds_format: american
+  allow_historical_fetch: false
+  max_historical_requests: 4000
+  snapshot_grid_minutes: 5     # floor target time onto grid; never round later
+  credits_per_market_per_region: 10
+  # estimated credits = requests * 10 * len(markets) * len(regions)
+
+cfbd:
+  base_url: https://api.collegefootballdata.com
+  classification: fbs
+  season_types: [regular, postseason]
+  exclude_fcs: true
+  exclude_cancelled: true
+  exclude_unplayed: true
+
+team_mapping:
+  aliases_file: config/team_aliases.yaml
+  enable_fuzzy: false
+  auto_fuzzy_below_confidence: 0.92   # if fuzzy later enabled, never match below this
+
+# Half-open [min, max) except last bucket/band which is closed on the right.
+movement_buckets:
+  - { label: "<= -3.0", min: -999.0, max: -3.0, right_closed: false }
+  - { label: "-3.0 to -1.5", min: -3.0, max: -1.5, right_closed: false }
+  - { label: "-1.5 to -0.5", min: -1.5, max: -0.5, right_closed: false }
+  - { label: "-0.5 to +0.5", min: -0.5, max: 0.5, right_closed: false }
+  - { label: "+0.5 to +1.5", min: 0.5, max: 1.5, right_closed: false }
+  - { label: "+1.5 to +3.0", min: 1.5, max: 3.0, right_closed: false }
+  - { label: ">= +3.0", min: 3.0, max: 999.0, right_closed: true }
+
+probability_bands:
+  - { label: "50-55%", min: 0.50, max: 0.55, right_closed: false }
+  - { label: "55-60%", min: 0.55, max: 0.60, right_closed: false }
+  - { label: "60-70%", min: 0.60, max: 0.70, right_closed: false }
+  - { label: "70-80%", min: 0.70, max: 0.80, right_closed: false }
+  - { label: "80-90%", min: 0.80, max: 0.90, right_closed: false }
+  - { label: "90%+", min: 0.90, max: 1.00, right_closed: true }
+
+shrinkage:
+  max_adjustment: 0.03
+  toward: zero
+  n_thresholds: { very_heavy: 50, heavy: 100, moderate: 250, light: 500 }
+  weights: { very_heavy: 0.0, heavy: 0.25, moderate: 0.50, light: 0.75, minimal: 0.90 }
+  uncertain_to_zero: true      # N < 50 or CI crosses 0 → production_adjustment = 0
+
+bootstrap:
+  iterations: 1000
+  resample_by: week_season
+
+walk_forward:
+  folds:
+    - { train: [2021, 2022], test: [2023] }
+    - { train: [2021, 2022, 2023], test: [2024] }
+    - { train: [2021, 2022, 2023, 2024], test: [2025] }
+
+calibration:
+  clamp_min: 0.01
+  clamp_max: 0.99
+
+paths:
+  raw_odds: data/raw/odds_api
+  raw_cfbd: data/raw/cfbd
+  processed: data/processed
+  outputs: data/outputs

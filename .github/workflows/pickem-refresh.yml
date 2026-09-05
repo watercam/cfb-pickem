@@ -1,0 +1,62 @@
+name: Pick'em refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Eastern windows through the season (EDT/EST):
+    # Thu evening, Fri midday+evening, Sat morning+midday.
+    - cron: "0 23 * * 4"
+    - cron: "0 17,23 * * 5"
+    - cron: "0 13,17 * * 6"
+
+concurrency:
+  group: pickem-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package
+        run: pip install -e .
+
+      - name: Require live secrets
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          missing=0
+          if [ -z "$ODDS_API_KEY" ]; then echo "missing secret ODDS_API_KEY"; missing=1; fi
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then echo "missing secret NETLIFY_AUTH_TOKEN"; missing=1; fi
+          if [ -z "$NETLIFY_SITE_ID" ]; then echo "missing secret NETLIFY_SITE_ID"; missing=1; fi
+          exit "$missing"
+
+      - name: Rank live ESPN + Pinnacle slate
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python -m src.pickem.run --web
+
+      - name: Deploy Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx --yes netlify-cli deploy --dir=web --prod
+
+      - name: Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python -m src.pickem.slack --failure "Pick'em refresh failed: ${RUN_URL}"

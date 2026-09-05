@@ -1,0 +1,1458 @@
+{
+  "week": 2,
+  "now": "2026-09-10T18:00:00Z",
+  "games": [
+    {
+      "game_id": "game-01",
+      "away_team": "Ole Miss",
+      "home_team": "USC",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-02",
+      "away_team": "Miami",
+      "home_team": "UCF",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-03",
+      "away_team": "Miami (OH)",
+      "home_team": "UTSA",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-04",
+      "away_team": "UConn",
+      "home_team": "Southern Miss",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-05",
+      "away_team": "Alpha State",
+      "home_team": "Beta Tech",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-06",
+      "away_team": "Gamma U",
+      "home_team": "Delta College",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-07",
+      "away_team": "East State",
+      "home_team": "West State",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-08",
+      "away_team": "North College",
+      "home_team": "South College",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-09",
+      "away_team": "Iron Tech",
+      "home_team": "Steel U",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    },
+    {
+      "game_id": "game-10",
+      "away_team": "Lake A&M",
+      "home_team": "Ridge State",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "public_pct": {
+        "away": 40.0,
+        "home": 60.0
+      }
+    }
+  ],
+  "odds_payloads": [
+    {
+      "timestamp": "2026-09-09T19:00:00Z",
+      "previous_timestamp": null,
+      "next_timestamp": null,
+      "_meta": {
+        "requested_date": "2026-09-09T19:00:00Z"
+      },
+      "data": [
+        {
+          "id": "game-01",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "USC Trojans",
+          "away_team": "Mississippi Rebels",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -185
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": 160
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -110,
+                      "point": -3.0
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": -110,
+                      "point": 3.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-02",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UCF Knights",
+          "away_team": "Miami Hurricanes",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -285
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": 230
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -110,
+                      "point": -7.0
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": -110,
+                      "point": 7.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-03",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UTSA Roadrunners",
+          "away_team": "Miami (OH) RedHawks",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -115
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": 100
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -110,
+                      "point": -2.5
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": -110,
+                      "point": 2.5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-04",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Southern Mississippi Golden Eagles",
+          "away_team": "UConn Huskies",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -140
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": 125
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -110,
+                      "point": -4.0
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": -110,
+                      "point": 4.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-05",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Beta Tech",
+          "away_team": "Alpha State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -135
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": 120
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -110,
+                      "point": -3.0
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": -110,
+                      "point": 3.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-06",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Delta College",
+          "away_team": "Gamma U",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -165
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": 145
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -110,
+                      "point": -6.0
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": -110,
+                      "point": 6.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-07",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "West State",
+          "away_team": "East State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -95
+                    },
+                    {
+                      "name": "East State",
+                      "price": -120
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -110,
+                      "point": -1.0
+                    },
+                    {
+                      "name": "East State",
+                      "price": -110,
+                      "point": 1.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-08",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "South College",
+          "away_team": "North College",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": 165
+                    },
+                    {
+                      "name": "North College",
+                      "price": -180
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": -110,
+                      "point": 3.0
+                    },
+                    {
+                      "name": "North College",
+                      "price": -110,
+                      "point": -3.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-09",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Steel U",
+          "away_team": "Iron Tech",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -385
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": 300
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -110,
+                      "point": -10.0
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": -110,
+                      "point": 10.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-10",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Ridge State",
+          "away_team": "Lake A&M",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-09T19:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -105
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": 90
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -110,
+                      "point": -2.0
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": -110,
+                      "point": 2.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-10T18:00:00Z",
+      "previous_timestamp": null,
+      "next_timestamp": null,
+      "_meta": {
+        "requested_date": "2026-09-10T18:00:00Z"
+      },
+      "data": [
+        {
+          "id": "game-01",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "USC Trojans",
+          "away_team": "Mississippi Rebels",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -200
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": 170
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -110,
+                      "point": -5.0
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": -110,
+                      "point": 5.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-02",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UCF Knights",
+          "away_team": "Miami Hurricanes",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -300
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": 240
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -110,
+                      "point": -7.0
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": -110,
+                      "point": 7.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-03",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UTSA Roadrunners",
+          "away_team": "Miami (OH) RedHawks",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -130
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": 110
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -110,
+                      "point": -1.0
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": -110,
+                      "point": 1.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-04",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Southern Mississippi Golden Eagles",
+          "away_team": "UConn Huskies",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -155
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": 135
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -110,
+                      "point": -4.5
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": -110,
+                      "point": 4.5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-05",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Beta Tech",
+          "away_team": "Alpha State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -150
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": 130
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -110,
+                      "point": -5.0
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": -110,
+                      "point": 5.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-06",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Delta College",
+          "away_team": "Gamma U",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -180
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": 155
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -110,
+                      "point": -3.0
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": -110,
+                      "point": 3.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-07",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "West State",
+          "away_team": "East State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -110
+                    },
+                    {
+                      "name": "East State",
+                      "price": -110
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -110,
+                      "point": -1.0
+                    },
+                    {
+                      "name": "East State",
+                      "price": -110,
+                      "point": 1.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-08",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "South College",
+          "away_team": "North College",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": 150
+                    },
+                    {
+                      "name": "North College",
+                      "price": -170
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": -110,
+                      "point": 6.0
+                    },
+                    {
+                      "name": "North College",
+                      "price": -110,
+                      "point": -6.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-09",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Steel U",
+          "away_team": "Iron Tech",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -400
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": 310
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -110,
+                      "point": -10.0
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": -110,
+                      "point": 10.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-10",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Ridge State",
+          "away_team": "Lake A&M",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-10T18:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -120
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": 100
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -110,
+                      "point": 1.0
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": -110,
+                      "point": -1.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-11T12:00:00Z",
+      "previous_timestamp": null,
+      "next_timestamp": null,
+      "_meta": {
+        "requested_date": "2026-09-11T12:00:00Z"
+      },
+      "data": [
+        {
+          "id": "game-01",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "USC Trojans",
+          "away_team": "Mississippi Rebels",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -800
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "USC Trojans",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Mississippi Rebels",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-02",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UCF Knights",
+          "away_team": "Miami Hurricanes",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -800
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UCF Knights",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Miami Hurricanes",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-03",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "UTSA Roadrunners",
+          "away_team": "Miami (OH) RedHawks",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -800
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "UTSA Roadrunners",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Miami (OH) RedHawks",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-04",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Southern Mississippi Golden Eagles",
+          "away_team": "UConn Huskies",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -800
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Southern Mississippi Golden Eagles",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "UConn Huskies",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-05",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Beta Tech",
+          "away_team": "Alpha State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -800
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Beta Tech",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Alpha State",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-06",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Delta College",
+          "away_team": "Gamma U",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -800
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Delta College",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Gamma U",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-07",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "West State",
+          "away_team": "East State",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -800
+                    },
+                    {
+                      "name": "East State",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "West State",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "East State",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-08",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "South College",
+          "away_team": "North College",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": -800
+                    },
+                    {
+                      "name": "North College",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "South College",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "North College",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-09",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Steel U",
+          "away_team": "Iron Tech",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -800
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Steel U",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Iron Tech",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "game-10",
+          "sport_key": "americanfootball_ncaaf",
+          "commence_time": "2026-09-12T19:00:00Z",
+          "home_team": "Ridge State",
+          "away_team": "Lake A&M",
+          "bookmakers": [
+            {
+              "key": "pinnacle",
+              "title": "Pinnacle",
+              "last_update": "2026-09-11T12:00:00Z",
+              "markets": [
+                {
+                  "key": "h2h",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -800
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": 500
+                    }
+                  ]
+                },
+                {
+                  "key": "spreads",
+                  "outcomes": [
+                    {
+                      "name": "Ridge State",
+                      "price": -110,
+                      "point": -20.0
+                    },
+                    {
+                      "name": "Lake A&M",
+                      "price": -110,
+                      "point": 20.0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

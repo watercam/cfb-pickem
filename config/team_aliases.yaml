@@ -1,0 +1,416 @@
+# Manual and generated team-name resolution. Do not auto-fuzzy-match.
+# Generated from CFBD school+mascot exact strings present in Odds API snapshots.
+# canonical_team is the join key used in the backtest dataset.
+
+aliases:
+- canonical_team: Air Force
+  odds_api_team: Air Force Falcons
+  cfbd_team: Air Force
+- canonical_team: Akron
+  odds_api_team: Akron Zips
+  cfbd_team: Akron
+- canonical_team: Alabama
+  odds_api_team: Alabama Crimson Tide
+  cfbd_team: Alabama
+- canonical_team: App State
+  odds_api_team: Appalachian State Mountaineers
+  cfbd_team: App State
+- canonical_team: Arizona
+  odds_api_team: Arizona Wildcats
+  cfbd_team: Arizona
+- canonical_team: Arizona State
+  odds_api_team: Arizona State Sun Devils
+  cfbd_team: Arizona State
+- canonical_team: Arkansas
+  odds_api_team: Arkansas Razorbacks
+  cfbd_team: Arkansas
+- canonical_team: Arkansas State
+  odds_api_team: Arkansas State Red Wolves
+  cfbd_team: Arkansas State
+- canonical_team: Army
+  odds_api_team: Army Black Knights
+  cfbd_team: Army
+- canonical_team: Auburn
+  odds_api_team: Auburn Tigers
+  cfbd_team: Auburn
+- canonical_team: BYU
+  odds_api_team: BYU Cougars
+  cfbd_team: BYU
+- canonical_team: Ball State
+  odds_api_team: Ball State Cardinals
+  cfbd_team: Ball State
+- canonical_team: Baylor
+  odds_api_team: Baylor Bears
+  cfbd_team: Baylor
+- canonical_team: Boise State
+  odds_api_team: Boise State Broncos
+  cfbd_team: Boise State
+- canonical_team: Boston College
+  odds_api_team: Boston College Eagles
+  cfbd_team: Boston College
+- canonical_team: Bowling Green
+  odds_api_team: Bowling Green Falcons
+  cfbd_team: Bowling Green
+- canonical_team: Buffalo
+  odds_api_team: Buffalo Bulls
+  cfbd_team: Buffalo
+- canonical_team: California
+  odds_api_team: California Golden Bears
+  cfbd_team: California
+- canonical_team: Central Michigan
+  odds_api_team: Central Michigan Chippewas
+  cfbd_team: Central Michigan
+- canonical_team: Charlotte
+  odds_api_team: Charlotte 49ers
+  cfbd_team: Charlotte
+- canonical_team: Cincinnati
+  odds_api_team: Cincinnati Bearcats
+  cfbd_team: Cincinnati
+- canonical_team: Clemson
+  odds_api_team: Clemson Tigers
+  cfbd_team: Clemson
+- canonical_team: Coastal Carolina
+  odds_api_team: Coastal Carolina Chanticleers
+  cfbd_team: Coastal Carolina
+- canonical_team: Colorado
+  odds_api_team: Colorado Buffaloes
+  cfbd_team: Colorado
+- canonical_team: Colorado State
+  odds_api_team: Colorado State Rams
+  cfbd_team: Colorado State
+- canonical_team: Delaware
+  odds_api_team: Delaware Blue Hens
+  cfbd_team: Delaware
+- canonical_team: Duke
+  odds_api_team: Duke Blue Devils
+  cfbd_team: Duke
+- canonical_team: East Carolina
+  odds_api_team: East Carolina Pirates
+  cfbd_team: East Carolina
+- canonical_team: Eastern Michigan
+  odds_api_team: Eastern Michigan Eagles
+  cfbd_team: Eastern Michigan
+- canonical_team: Florida
+  odds_api_team: Florida Gators
+  cfbd_team: Florida
+- canonical_team: Florida Atlantic
+  odds_api_team: Florida Atlantic Owls
+  cfbd_team: Florida Atlantic
+- canonical_team: Florida International
+  odds_api_team: Florida International Panthers
+  cfbd_team: Florida International
+- canonical_team: Florida State
+  odds_api_team: Florida State Seminoles
+  cfbd_team: Florida State
+- canonical_team: Fresno State
+  odds_api_team: Fresno State Bulldogs
+  cfbd_team: Fresno State
+- canonical_team: Georgia
+  odds_api_team: Georgia Bulldogs
+  cfbd_team: Georgia
+- canonical_team: Georgia Southern
+  odds_api_team: Georgia Southern Eagles
+  cfbd_team: Georgia Southern
+- canonical_team: Georgia State
+  odds_api_team: Georgia State Panthers
+  cfbd_team: Georgia State
+- canonical_team: Georgia Tech
+  odds_api_team: Georgia Tech Yellow Jackets
+  cfbd_team: Georgia Tech
+- canonical_team: Hawai'i
+  odds_api_team: Hawaii Rainbow Warriors
+  cfbd_team: Hawai'i
+- canonical_team: Houston
+  odds_api_team: Houston Cougars
+  cfbd_team: Houston
+- canonical_team: Illinois
+  odds_api_team: Illinois Fighting Illini
+  cfbd_team: Illinois
+- canonical_team: Indiana
+  odds_api_team: Indiana Hoosiers
+  cfbd_team: Indiana
+- canonical_team: Iowa
+  odds_api_team: Iowa Hawkeyes
+  cfbd_team: Iowa
+- canonical_team: Iowa State
+  odds_api_team: Iowa State Cyclones
+  cfbd_team: Iowa State
+- canonical_team: Jacksonville State
+  odds_api_team: Jacksonville State Gamecocks
+  cfbd_team: Jacksonville State
+- canonical_team: James Madison
+  odds_api_team: James Madison Dukes
+  cfbd_team: James Madison
+- canonical_team: Kansas
+  odds_api_team: Kansas Jayhawks
+  cfbd_team: Kansas
+- canonical_team: Kansas State
+  odds_api_team: Kansas State Wildcats
+  cfbd_team: Kansas State
+- canonical_team: Kennesaw State
+  odds_api_team: Kennesaw State Owls
+  cfbd_team: Kennesaw State
+- canonical_team: Kent State
+  odds_api_team: Kent State Golden Flashes
+  cfbd_team: Kent State
+- canonical_team: Kentucky
+  odds_api_team: Kentucky Wildcats
+  cfbd_team: Kentucky
+- canonical_team: LSU
+  odds_api_team: LSU Tigers
+  cfbd_team: LSU
+- canonical_team: Liberty
+  odds_api_team: Liberty Flames
+  cfbd_team: Liberty
+- canonical_team: Louisiana
+  odds_api_team: Louisiana Ragin Cajuns
+  cfbd_team: Louisiana
+- canonical_team: Louisiana Tech
+  odds_api_team: Louisiana Tech Bulldogs
+  cfbd_team: Louisiana Tech
+- canonical_team: Louisville
+  odds_api_team: Louisville Cardinals
+  cfbd_team: Louisville
+- canonical_team: Marshall
+  odds_api_team: Marshall Thundering Herd
+  cfbd_team: Marshall
+- canonical_team: Maryland
+  odds_api_team: Maryland Terrapins
+  cfbd_team: Maryland
+- canonical_team: Massachusetts
+  odds_api_team: UMass Minutemen
+  cfbd_team: Massachusetts
+- canonical_team: Memphis
+  odds_api_team: Memphis Tigers
+  cfbd_team: Memphis
+- canonical_team: Miami
+  odds_api_team: Miami Hurricanes
+  cfbd_team: Miami
+- canonical_team: Miami (OH)
+  odds_api_team: Miami (OH) RedHawks
+  cfbd_team: Miami (OH)
+- canonical_team: Michigan
+  odds_api_team: Michigan Wolverines
+  cfbd_team: Michigan
+- canonical_team: Michigan State
+  odds_api_team: Michigan State Spartans
+  cfbd_team: Michigan State
+- canonical_team: Middle Tennessee
+  odds_api_team: Middle Tennessee Blue Raiders
+  cfbd_team: Middle Tennessee
+- canonical_team: Minnesota
+  odds_api_team: Minnesota Golden Gophers
+  cfbd_team: Minnesota
+- canonical_team: Mississippi State
+  odds_api_team: Mississippi State Bulldogs
+  cfbd_team: Mississippi State
+- canonical_team: Missouri
+  odds_api_team: Missouri Tigers
+  cfbd_team: Missouri
+- canonical_team: Missouri State
+  odds_api_team: Missouri State Bears
+  cfbd_team: Missouri State
+- canonical_team: NC State
+  odds_api_team: NC State Wolfpack
+  cfbd_team: NC State
+- canonical_team: Navy
+  odds_api_team: Navy Midshipmen
+  cfbd_team: Navy
+- canonical_team: Nebraska
+  odds_api_team: Nebraska Cornhuskers
+  cfbd_team: Nebraska
+- canonical_team: Nevada
+  odds_api_team: Nevada Wolf Pack
+  cfbd_team: Nevada
+- canonical_team: New Mexico
+  odds_api_team: New Mexico Lobos
+  cfbd_team: New Mexico
+- canonical_team: New Mexico State
+  odds_api_team: New Mexico State Aggies
+  cfbd_team: New Mexico State
+- canonical_team: North Carolina
+  odds_api_team: North Carolina Tar Heels
+  cfbd_team: North Carolina
+- canonical_team: North Texas
+  odds_api_team: North Texas Mean Green
+  cfbd_team: North Texas
+- canonical_team: Northern Illinois
+  odds_api_team: Northern Illinois Huskies
+  cfbd_team: Northern Illinois
+- canonical_team: Northwestern
+  odds_api_team: Northwestern Wildcats
+  cfbd_team: Northwestern
+- canonical_team: Notre Dame
+  odds_api_team: Notre Dame Fighting Irish
+  cfbd_team: Notre Dame
+- canonical_team: Ohio
+  odds_api_team: Ohio Bobcats
+  cfbd_team: Ohio
+- canonical_team: Ohio State
+  odds_api_team: Ohio State Buckeyes
+  cfbd_team: Ohio State
+- canonical_team: Oklahoma
+  odds_api_team: Oklahoma Sooners
+  cfbd_team: Oklahoma
+- canonical_team: Oklahoma State
+  odds_api_team: Oklahoma State Cowboys
+  cfbd_team: Oklahoma State
+- canonical_team: Old Dominion
+  odds_api_team: Old Dominion Monarchs
+  cfbd_team: Old Dominion
+- canonical_team: Ole Miss
+  odds_api_team: Ole Miss Rebels
+  cfbd_team: Ole Miss
+- canonical_team: Ole Miss
+  odds_api_team: Mississippi Rebels
+  cfbd_team: Ole Miss
+- canonical_team: Oregon
+  odds_api_team: Oregon Ducks
+  cfbd_team: Oregon
+- canonical_team: Oregon State
+  odds_api_team: Oregon State Beavers
+  cfbd_team: Oregon State
+- canonical_team: Penn State
+  odds_api_team: Penn State Nittany Lions
+  cfbd_team: Penn State
+- canonical_team: Pittsburgh
+  odds_api_team: Pittsburgh Panthers
+  cfbd_team: Pittsburgh
+- canonical_team: Purdue
+  odds_api_team: Purdue Boilermakers
+  cfbd_team: Purdue
+- canonical_team: Rice
+  odds_api_team: Rice Owls
+  cfbd_team: Rice
+- canonical_team: Rutgers
+  odds_api_team: Rutgers Scarlet Knights
+  cfbd_team: Rutgers
+- canonical_team: SMU
+  odds_api_team: SMU Mustangs
+  cfbd_team: SMU
+- canonical_team: Sam Houston
+  odds_api_team: Sam Houston State Bearkats
+  cfbd_team: Sam Houston
+- canonical_team: San Diego State
+  odds_api_team: San Diego State Aztecs
+  cfbd_team: San Diego State
+- canonical_team: San José State
+  odds_api_team: San Jose State Spartans
+  cfbd_team: San José State
+- canonical_team: South Alabama
+  odds_api_team: South Alabama Jaguars
+  cfbd_team: South Alabama
+- canonical_team: South Carolina
+  odds_api_team: South Carolina Gamecocks
+  cfbd_team: South Carolina
+- canonical_team: South Florida
+  odds_api_team: South Florida Bulls
+  cfbd_team: South Florida
+- canonical_team: Southern Miss
+  odds_api_team: Southern Mississippi Golden Eagles
+  cfbd_team: Southern Miss
+- canonical_team: Stanford
+  odds_api_team: Stanford Cardinal
+  cfbd_team: Stanford
+- canonical_team: Syracuse
+  odds_api_team: Syracuse Orange
+  cfbd_team: Syracuse
+- canonical_team: TCU
+  odds_api_team: TCU Horned Frogs
+  cfbd_team: TCU
+- canonical_team: Temple
+  odds_api_team: Temple Owls
+  cfbd_team: Temple
+- canonical_team: Tennessee
+  odds_api_team: Tennessee Volunteers
+  cfbd_team: Tennessee
+- canonical_team: Texas
+  odds_api_team: Texas Longhorns
+  cfbd_team: Texas
+- canonical_team: Texas A&M
+  odds_api_team: Texas A&M Aggies
+  cfbd_team: Texas A&M
+- canonical_team: Texas State
+  odds_api_team: Texas State Bobcats
+  cfbd_team: Texas State
+- canonical_team: Texas Tech
+  odds_api_team: Texas Tech Red Raiders
+  cfbd_team: Texas Tech
+- canonical_team: Toledo
+  odds_api_team: Toledo Rockets
+  cfbd_team: Toledo
+- canonical_team: Troy
+  odds_api_team: Troy Trojans
+  cfbd_team: Troy
+- canonical_team: Tulane
+  odds_api_team: Tulane Green Wave
+  cfbd_team: Tulane
+- canonical_team: Tulsa
+  odds_api_team: Tulsa Golden Hurricane
+  cfbd_team: Tulsa
+- canonical_team: UAB
+  odds_api_team: UAB Blazers
+  cfbd_team: UAB
+- canonical_team: UCF
+  odds_api_team: UCF Knights
+  cfbd_team: UCF
+- canonical_team: UCLA
+  odds_api_team: UCLA Bruins
+  cfbd_team: UCLA
+- canonical_team: UConn
+  odds_api_team: UConn Huskies
+  cfbd_team: UConn
+- canonical_team: UL Monroe
+  odds_api_team: UL Monroe Warhawks
+  cfbd_team: UL Monroe
+- canonical_team: UNLV
+  odds_api_team: UNLV Rebels
+  cfbd_team: UNLV
+- canonical_team: USC
+  odds_api_team: USC Trojans
+  cfbd_team: USC
+- canonical_team: UTEP
+  odds_api_team: UTEP Miners
+  cfbd_team: UTEP
+- canonical_team: UTSA
+  odds_api_team: UTSA Roadrunners
+  cfbd_team: UTSA
+- canonical_team: Utah
+  odds_api_team: Utah Utes
+  cfbd_team: Utah
+- canonical_team: Utah State
+  odds_api_team: Utah State Aggies
+  cfbd_team: Utah State
+- canonical_team: Vanderbilt
+  odds_api_team: Vanderbilt Commodores
+  cfbd_team: Vanderbilt
+- canonical_team: Virginia
+  odds_api_team: Virginia Cavaliers
+  cfbd_team: Virginia
+- canonical_team: Virginia Tech
+  odds_api_team: Virginia Tech Hokies
+  cfbd_team: Virginia Tech
+- canonical_team: Wake Forest
+  odds_api_team: Wake Forest Demon Deacons
+  cfbd_team: Wake Forest
+- canonical_team: Washington
+  odds_api_team: Washington Huskies
+  cfbd_team: Washington
+- canonical_team: Washington State
+  odds_api_team: Washington State Cougars
+  cfbd_team: Washington State
+- canonical_team: West Virginia
+  odds_api_team: West Virginia Mountaineers
+  cfbd_team: West Virginia
+- canonical_team: Western Kentucky
+  odds_api_team: Western Kentucky Hilltoppers
+  cfbd_team: Western Kentucky
+- canonical_team: Western Michigan
+  odds_api_team: Western Michigan Broncos
+  cfbd_team: Western Michigan
+- canonical_team: Wisconsin
+  odds_api_team: Wisconsin Badgers
+  cfbd_team: Wisconsin
+- canonical_team: Wyoming
+  odds_api_team: Wyoming Cowboys
+  cfbd_team: Wyoming
