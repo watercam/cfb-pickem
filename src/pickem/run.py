@@ -90,8 +90,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     payload = _attach_previous_dashboard(previous, payload)
     payload["alerts"] = projection_alerts(previous, payload)
     if not args.no_slack:
-        dashboard_url = str((config.get("slate") or {}).get("dashboard_url") or "")
-        post_pickem_update(payload, previous=previous, dashboard_url=dashboard_url)
+        slate = config.get("slate") or {}
+        post_pickem_update(
+            payload,
+            previous=previous,
+            dashboard_url=str(slate.get("dashboard_url") or ""),
+            refresh_url=str(slate.get("refresh_url") or ""),
+        )
     if out_path is not None:
         _write_json(out_path, payload)
     if args.json:

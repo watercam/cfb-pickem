@@ -23,4 +23,5 @@ calibration:
 slate:
   espn_challenge_url: https://gambit-api.fantasy.espn.com/apis/v1/challenges/college-football-pickem-2026?platform=chui&view=allon
   dashboard_url: https://cfb-pickem-845.netlify.app
+  refresh_url: https://github.com/watercam/cfb-pickem/actions/workflows/pickem-refresh.yml
   confidence_points: 10

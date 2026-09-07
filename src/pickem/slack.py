@@ -19,12 +19,18 @@ def post_pickem_update(
     *,
     previous: Optional[Mapping[str, Any]] = None,
     dashboard_url: str = "",
+    refresh_url: str = "",
     webhook_url: Optional[str] = None,
 ) -> bool:
     url = _webhook(webhook_url)
     if not url:
         return False
-    text = format_success_message(payload, previous=previous, dashboard_url=dashboard_url)
+    text = format_success_message(
+        payload,
+        previous=previous,
+        dashboard_url=dashboard_url,
+        refresh_url=refresh_url,
+    )
     _post_text(url, text)
     return True
 
@@ -42,6 +48,7 @@ def format_success_message(
     *,
     previous: Optional[Mapping[str, Any]] = None,
     dashboard_url: str = "",
+    refresh_url: str = "",
 ) -> str:
     week = payload.get("week")
     week_label = "-" if week is None else str(week)
@@ -64,6 +71,9 @@ def format_success_message(
                 lines.append(f"- {alert.get('message') or alert.get('kind')}")
             else:
                 lines.append(f"- {alert}")
+    if refresh_url:
+        lines.append("")
+        lines.append(f"Run refresh: {refresh_url}")
     return "\n".join(lines).rstrip() + "\n"
 
 
