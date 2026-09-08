@@ -73,11 +73,12 @@
     }
     .stat .label { color: var(--muted); font-size: 0.75rem; margin-top: 0.15rem; }
     .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.85rem; }
     th, td {
       text-align: left;
       padding: 0.5rem 0.65rem;
       border-bottom: 1px solid var(--line);
+      white-space: nowrap;
     }
     th { color: var(--muted); font-weight: 600; font-size: 0.75rem; }
     td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
@@ -152,40 +153,32 @@
       .bar-val { grid-area: val; }
       .bar-track { grid-area: track; }
       .bar-legend { padding-left: 0; }
-      .table-wrap { overflow: visible; border: 0; }
-      table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-      table, tbody { display: block; width: 100%; }
-      tbody tr {
-        display: block;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        margin-bottom: 0.65rem;
-        padding: 0.35rem 0;
-        box-shadow: none;
+      .table-wrap { margin: 0 -1rem; border-radius: 0; border-left: 0; border-right: 0; }
+      th:nth-child(1), td:nth-child(1) {
+        position: sticky;
+        left: 0;
+        width: 3.5rem;
+        min-width: 3.5rem;
+        max-width: 3.5rem;
+        background: var(--bg);
+        z-index: 2;
       }
-      tbody tr:nth-child(even) { background: var(--card); }
-      tbody tr.lock { box-shadow: inset 3px 0 0 var(--warn); }
-      tbody tr.coin { box-shadow: inset 3px 0 0 var(--accent); }
-      tbody td {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 0.75rem;
-        border: 0;
-        padding: 0.32rem 0.85rem;
-        text-align: right;
-        overflow-wrap: anywhere;
+      th:nth-child(2), td:nth-child(2) {
+        position: sticky;
+        left: 3.5rem;
+        background: var(--bg);
+        z-index: 2;
+        box-shadow: 6px 0 8px -6px rgba(0, 0, 0, 0.55);
       }
-      tbody td::before {
-        content: attr(data-label);
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-align: left;
-        flex: 0 0 42%;
+      thead th:nth-child(1), thead th:nth-child(2) { background: var(--card); }
+      tbody tr:nth-child(even) td:nth-child(1),
+      tbody tr:nth-child(even) td:nth-child(2) { background: var(--row-alt); }
+      tbody tr.lock td:nth-child(1) {
+        box-shadow: inset 3px 0 0 var(--warn);
       }
-      tbody td.num { text-align: right; }
+      tbody tr.coin td:nth-child(1) {
+        box-shadow: inset 3px 0 0 var(--accent);
+      }
     }
   </style>
 </head>
