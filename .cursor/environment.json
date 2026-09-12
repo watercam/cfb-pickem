@@ -1,0 +1,17 @@
+{
+  "name": "cfb-pickem",
+  "install": "python3 -m pip install -e \".[dev]\"",
+  "terminals": [
+    {
+      "name": "web-dashboard",
+      "command": "cd web && python3 -m http.server 8765",
+      "description": "Serves the static Pick'em dashboard (web/index.html + recommendations.json) at http://localhost:8765. Regenerate recommendations with `python3 -m src.pickem.run --fixture tests/fixtures/pickem_week.json --web`."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web dashboard",
+      "port": 8765
+    }
+  ]
+}
