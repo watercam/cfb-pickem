@@ -108,11 +108,20 @@ def team_features_from_snapshots(
         reference_pool["snapshot_ts"].tolist(),
         reference,
     )
-    is_home = team == home_team
+    if team == home_team:
+        is_home: Optional[bool] = True
+    elif team == away_team:
+        is_home = False
+    else:
+        is_home = None
     current_row = _row_at(usable, current_ts)
     reference_row = _row_at(reference_pool, reference_chosen)
-    current_spread, current_spread_price = _team_spread(current_row, team, is_home)
-    reference_spread, reference_spread_price = _team_spread(reference_row, team, is_home)
+    if is_home is None:
+        current_spread, current_spread_price = None, None
+        reference_spread, reference_spread_price = None, None
+    else:
+        current_spread, current_spread_price = _team_spread(current_row, team, is_home)
+        reference_spread, reference_spread_price = _team_spread(reference_row, team, is_home)
     current_ml, opp_ml = _team_moneylines(current_row, team, opponent)
     reference_ml, reference_opp_ml = _team_moneylines(reference_row, team, opponent)
     current_p = (
@@ -199,11 +208,14 @@ def _team_moneylines(
     home_ml = row.get("home_moneyline")
     away_ml = row.get("away_moneyline")
     home_team = row.get("home_team_odds") or row.get("home_team")
+    away_team = row.get("away_team_odds") or row.get("away_team")
     if pd.isna(home_ml) or pd.isna(away_ml):
         return None, None
     if team == home_team:
         return int(home_ml), int(away_ml)
-    return int(away_ml), int(home_ml)
+    if team == away_team:
+        return int(away_ml), int(home_ml)
+    return None, None
 
 
 def assert_no_lookahead(
