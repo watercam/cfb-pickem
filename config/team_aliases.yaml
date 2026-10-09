@@ -231,6 +231,9 @@ aliases:
 - canonical_team: North Carolina
   odds_api_team: North Carolina Tar Heels
   cfbd_team: North Carolina
+- canonical_team: North Dakota State
+  odds_api_team: North Dakota State Bison
+  cfbd_team: North Dakota State
 - canonical_team: North Texas
   odds_api_team: North Texas Mean Green
   cfbd_team: North Texas
@@ -288,6 +291,9 @@ aliases:
 - canonical_team: SMU
   odds_api_team: SMU Mustangs
   cfbd_team: SMU
+- canonical_team: Sacramento State
+  odds_api_team: Sacramento State Hornets
+  cfbd_team: Sacramento State
 - canonical_team: Sam Houston
   odds_api_team: Sam Houston State Bearkats
   cfbd_team: Sam Houston
