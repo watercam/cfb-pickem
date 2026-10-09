@@ -258,7 +258,7 @@ def test_neutral_site_reversed_book_keeps_favorite_probability() -> None:
 
 def test_cotton_bowl_reversed_book_keeps_texas_favorite() -> None:
     kickoff = datetime(2026, 10, 10, 19, 0, tzinfo=timezone.utc)
-    now = datetime(2026, 10, 9, 18, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 10, 10, 12, 0, tzinfo=timezone.utc)
     texas_ml = -185
     oklahoma_ml = 160
     snaps = _neutral_snapshots(
