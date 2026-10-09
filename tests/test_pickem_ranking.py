@@ -294,6 +294,47 @@ def test_cotton_bowl_reversed_book_keeps_texas_favorite() -> None:
     assert rec.pinnacle_spread == -4.0
 
 
+def test_ndsu_at_unlv_matches_both_book_slot_orders() -> None:
+    kickoff = datetime(2026, 10, 10, 16, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 10, 9, 18, 0, tzinfo=timezone.utc)
+    ndsu_ml = 150
+    unlv_ml = -170
+    game = SlateGame(
+        game_id="NDSU @ UNLV",
+        away_espn="North Dakota State",
+        home_espn="UNLV",
+        kickoff=kickoff,
+        public_away_pct=34.0,
+        public_home_pct=66.0,
+        week=6,
+    )
+    for book_home, book_away, home_ml, away_ml, spread in (
+        ("UNLV Rebels", "North Dakota State Bison", unlv_ml, ndsu_ml, -3.5),
+        ("North Dakota State Bison", "UNLV Rebels", ndsu_ml, unlv_ml, 3.5),
+    ):
+        snaps = _neutral_snapshots(
+            event_id="ndsu-at-unlv",
+            kickoff=kickoff,
+            book_home=book_home,
+            book_away=book_away,
+            home_ml=home_ml,
+            away_ml=away_ml,
+            spread=spread,
+        )
+        rec = score_game(
+            game,
+            snaps,
+            now=now,
+            calibrator=MovementCalibrator("none"),
+            reference_hours=72,
+        )
+        assert rec.pick is not None
+        assert UNMAPPED_TEAM not in rec.flags
+        assert ODDS_SIDE_UNMATCHED not in rec.flags
+        assert PINNACLE_MISSING not in rec.flags
+        assert rec.p_current == no_vig_probability(unlv_ml, ndsu_ml)
+
+
 def test_unmatched_odds_side_is_flagged_not_guessed() -> None:
     kickoff = datetime(2026, 9, 19, 16, 0, tzinfo=timezone.utc)
     now = datetime(2026, 9, 18, 18, 0, tzinfo=timezone.utc)

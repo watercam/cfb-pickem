@@ -70,3 +70,30 @@ def test_pair_odds_sides_does_not_guess_kansas_state() -> None:
         )
         is None
     )
+
+
+def test_pair_odds_sides_ndsu_at_unlv_both_slot_orders() -> None:
+    espn_home, espn_away = "UNLV", "North Dakota State"
+    book_unlv, book_ndsu = "UNLV Rebels", "North Dakota State Bison"
+    assert pair_odds_sides_for_espn(espn_home, espn_away, book_unlv, book_ndsu) == (
+        book_unlv,
+        book_ndsu,
+    )
+    assert pair_odds_sides_for_espn(espn_home, espn_away, book_ndsu, book_unlv) == (
+        book_unlv,
+        book_ndsu,
+    )
+
+
+def test_ndsu_and_sacramento_state_aliases() -> None:
+    aliases = load_aliases()
+    assert canonicalize("North Dakota State", "espn", aliases=aliases) == "North Dakota State"
+    assert canonicalize("North Dakota State Bison", "odds", aliases=aliases) == "North Dakota State"
+    assert canonicalize("Sacramento State", "espn", aliases=aliases) == "Sacramento State"
+    assert canonicalize("Sacramento State Hornets", "odds", aliases=aliases) == "Sacramento State"
+    assert pair_odds_sides_for_espn(
+        "Bowling Green",
+        "Sacramento State",
+        "Sacramento State Hornets",
+        "Bowling Green Falcons",
+    ) == ("Bowling Green Falcons", "Sacramento State Hornets")
