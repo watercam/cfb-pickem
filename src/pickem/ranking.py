@@ -12,12 +12,14 @@ from src.pickem.calibration import MovementCalibrator
 from src.pickem.odds import (
     current_event_home_away,
     features_for_side,
+    map_espn_to_odds_team_names,
     match_event_snapshots,
     missing_current_flags,
     resolve_espn_pair,
 )
 from src.pickem.types import (
     NO_CURRENT_ML,
+    ODDS_SIDE_UNMATCHED,
     PINNACLE_MISSING,
     UNMAPPED_TEAM,
     GameRecommendation,
@@ -76,7 +78,7 @@ def score_game(
         aliases=alias_rows,
     )
     if (home_c is None or away_c is None) and not event_snaps.empty:
-        # Exact ESPN string match against Pinnacle names (not fuzzy).
+        # Event was bound by team name (including swapped book home/away).
         flags = [flag for flag in flags if flag != UNMAPPED_TEAM]
     elif home_c is None or away_c is None:
         return _failed(game, flags or [UNMAPPED_TEAM])
@@ -85,11 +87,18 @@ def score_game(
             return _failed(game, flags)
         return _failed(game, flags + [PINNACLE_MISSING])
 
+    espn_home_odds, espn_away_odds, side_flags = map_espn_to_odds_team_names(
+        game, event_snaps, now=now, aliases=alias_rows
+    )
+    flags = list(dict.fromkeys(flags + side_flags))
+    if espn_home_odds is None or espn_away_odds is None or ODDS_SIDE_UNMATCHED in flags:
+        return _failed(game, flags or [ODDS_SIDE_UNMATCHED])
+
     odds_home, odds_away = current_event_home_away(event_snaps, now, game.kickoff)
     home_features = features_for_side(
         event_snaps,
-        team=odds_home,
-        opponent=odds_away,
+        team=espn_home_odds,
+        opponent=espn_away_odds,
         home_team=odds_home,
         away_team=odds_away,
         now=now,
@@ -98,8 +107,8 @@ def score_game(
     )
     away_features = features_for_side(
         event_snaps,
-        team=odds_away,
-        opponent=odds_home,
+        team=espn_away_odds,
+        opponent=espn_home_odds,
         home_team=odds_home,
         away_team=odds_away,
         now=now,

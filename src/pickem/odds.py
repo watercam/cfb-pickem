@@ -15,10 +15,11 @@ from src.data.fetch_odds_history import (
     floor_to_grid,
     parse_snapshot_payload,
 )
-from src.data.team_mapping import canonicalize, load_aliases
+from src.data.team_mapping import canonicalize, load_aliases, pair_odds_sides_for_espn
 from src.features.market_movement import team_features_from_snapshots
 from src.pickem.types import (
     NO_CURRENT_ML,
+    ODDS_SIDE_UNMATCHED,
     PINNACLE_MISSING,
     REFERENCE_MISSING,
     UNMAPPED_TEAM,
@@ -156,15 +157,22 @@ def match_event_snapshots(
         wanted = {home_canonical, away_canonical}
     matched_idx = []
     for idx, row in snapshots.iterrows():
-        odds_home = canonicalize(row.get("home_team_odds"), "odds", aliases=alias_rows)
-        odds_away = canonicalize(row.get("away_team_odds"), "odds", aliases=alias_rows)
-        if wanted and odds_home and odds_away and {odds_home, odds_away} == wanted:
-            matched_idx.append(idx)
-            continue
         raw_home = str(row.get("home_team_odds") or "")
         raw_away = str(row.get("away_team_odds") or "")
-        espn_pair = {game.home_espn, game.away_espn}
-        if espn_pair == {raw_home, raw_away}:
+        paired = pair_odds_sides_for_espn(
+            game.home_espn,
+            game.away_espn,
+            raw_home,
+            raw_away,
+            aliases=alias_rows,
+        )
+        if paired is not None:
+            matched_idx.append(idx)
+            continue
+        odds_home = canonicalize(row.get("home_team_odds"), "odds", aliases=alias_rows)
+        odds_away = canonicalize(row.get("away_team_odds"), "odds", aliases=alias_rows)
+        # Canonical set equality finds the event; side assignment still happens by name.
+        if wanted and odds_home and odds_away and {odds_home, odds_away} == wanted:
             matched_idx.append(idx)
     if not matched_idx:
         return pd.DataFrame()
@@ -195,6 +203,28 @@ def features_for_side(
         home_team=home_team,
         away_team=away_team,
     )
+
+
+def map_espn_to_odds_team_names(
+    game: SlateGame,
+    event_snaps: pd.DataFrame,
+    *,
+    now: datetime,
+    aliases=None,
+) -> Tuple[Optional[str], Optional[str], List[str]]:
+    """Book team strings for ESPN home/away. Flags instead of guessing on mismatch."""
+    odds_home, odds_away = current_event_home_away(event_snaps, now, game.kickoff)
+    alias_rows = aliases if aliases is not None else load_aliases()
+    paired = pair_odds_sides_for_espn(
+        game.home_espn,
+        game.away_espn,
+        odds_home,
+        odds_away,
+        aliases=alias_rows,
+    )
+    if paired is None:
+        return None, None, [ODDS_SIDE_UNMATCHED]
+    return paired[0], paired[1], []
 
 
 def current_event_home_away(event_snaps: pd.DataFrame, now: datetime, kickoff: datetime) -> Tuple[str, str]:
