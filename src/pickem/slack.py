@@ -1,20 +1,125 @@
-"""Post Pick'em summaries to a Slack Incoming Webhook. Skip if unset."""
+"""Publish Pick'em summaries to Slack. Prefer editing one message."""
 
 from __future__ import annotations
 
 import argparse
 import os
 import sys
+from dataclasses import dataclass
 from typing import Any, Dict, List, Mapping, Optional
 
 import requests
 
+from src.pickem.stamp import format_updated_stamp
 from src.settings import load_env
 
 WEBHOOK_ENV = "SLACK_WEBHOOK_URL"
+BOT_TOKEN_ENV = "SLACK_BOT_TOKEN"
+CHANNEL_ENV = "SLACK_CHANNEL_ID"
+SLACK_API = "https://slack.com/api"
 # Slack's table UI fades after ~8 body rows; 5 keeps a 10-game slate fully visible.
 TABLE_BODY_ROW_LIMIT = 5
 _MRKDWN_ESCAPES = (("&", "&amp;"), ("<", "&lt;"), (">", "&gt;"))
+
+
+@dataclass(frozen=True)
+class SlackPublishResult:
+    ok: bool
+    mode: str
+    body: Dict[str, Any]
+    channel: Optional[str] = None
+    ts: Optional[str] = None
+
+
+def build_success_body(
+    payload: Mapping[str, Any],
+    *,
+    previous: Optional[Mapping[str, Any]] = None,
+    dashboard_url: str = "",
+    refresh_url: str = "",
+) -> Dict[str, Any]:
+    return {
+        "text": format_success_message(payload, previous=previous),
+        "unfurl_links": False,
+        "blocks": format_success_blocks(
+            payload,
+            previous=previous,
+            dashboard_url=dashboard_url,
+            refresh_url=refresh_url,
+        ),
+    }
+
+
+def publish_pickem_message(
+    payload: Mapping[str, Any],
+    *,
+    previous: Optional[Mapping[str, Any]] = None,
+    dashboard_url: str = "",
+    refresh_url: str = "",
+    webhook_url: Optional[str] = None,
+    bot_token: Optional[str] = None,
+    channel: Optional[str] = None,
+    ts: Optional[str] = None,
+    dry_run: bool = False,
+) -> SlackPublishResult:
+    """Edit the existing Pick'em Slack message, or post it if none exists yet."""
+    body = build_success_body(
+        payload,
+        previous=previous,
+        dashboard_url=dashboard_url,
+        refresh_url=refresh_url,
+    )
+    token = _bot_token(bot_token)
+    dest_channel = _channel(channel, payload)
+    dest_ts = _message_ts(ts, payload)
+    if dry_run:
+        mode = "update" if token and dest_channel and dest_ts else "post" if token and dest_channel else "webhook"
+        return SlackPublishResult(
+            ok=True,
+            mode=f"dry_run_{mode}",
+            body=body,
+            channel=dest_channel,
+            ts=dest_ts,
+        )
+    if token and dest_channel and dest_ts:
+        try:
+            data = _slack_api(
+                "chat.update",
+                token,
+                {"channel": dest_channel, "ts": dest_ts, "text": body["text"], "blocks": body["blocks"]},
+            )
+            return SlackPublishResult(
+                ok=True,
+                mode="update",
+                body=body,
+                channel=str(data.get("channel") or dest_channel),
+                ts=str(data.get("ts") or dest_ts),
+            )
+        except RuntimeError:
+            dest_ts = None
+    if token and dest_channel:
+        data = _slack_api(
+            "chat.postMessage",
+            token,
+            {
+                "channel": dest_channel,
+                "text": body["text"],
+                "blocks": body["blocks"],
+                "unfurl_links": False,
+            },
+        )
+        return SlackPublishResult(
+            ok=True,
+            mode="post",
+            body=body,
+            channel=str(data.get("channel") or dest_channel),
+            ts=str(data.get("ts") or "") or None,
+        )
+    url = _webhook(webhook_url)
+    if not url:
+        return SlackPublishResult(ok=False, mode="skipped", body=body, channel=dest_channel, ts=dest_ts)
+    _post_json(url, body)
+    return SlackPublishResult(ok=True, mode="webhook", body=body, channel=dest_channel, ts=dest_ts)
 
 
 def post_pickem_update(
@@ -25,23 +130,14 @@ def post_pickem_update(
     refresh_url: str = "",
     webhook_url: Optional[str] = None,
 ) -> bool:
-    url = _webhook(webhook_url)
-    if not url:
-        return False
-    _post_json(
-        url,
-        {
-            "text": format_success_message(payload, previous=previous),
-            "unfurl_links": False,
-            "blocks": format_success_blocks(
-                payload,
-                previous=previous,
-                dashboard_url=dashboard_url,
-                refresh_url=refresh_url,
-            ),
-        },
+    result = publish_pickem_message(
+        payload,
+        previous=previous,
+        dashboard_url=dashboard_url,
+        refresh_url=refresh_url,
+        webhook_url=webhook_url,
     )
-    return True
+    return result.ok
 
 
 def post_failure(message: str, *, webhook_url: Optional[str] = None) -> bool:
@@ -266,9 +362,14 @@ def _fmt_spread(value: Any) -> Optional[str]:
 
 
 def _context_text(payload: Mapping[str, Any], previous: Optional[Mapping[str, Any]]) -> str:
+    stamp = payload.get("updated_stamp")
+    if not stamp:
+        generated = str(payload.get("generated_at") or "")
+        run_id = str(payload.get("run_id") or "local")
+        stamp = format_updated_stamp(generated, run_id) if generated else f"Updated unknown time, run {run_id}"
     bits = [
         f"calibration `{_escape_mrkdwn(str(payload.get('calibration') or '-'))}`",
-        f"generated_at `{_escape_mrkdwn(str(payload.get('generated_at') or '-'))}`",
+        f"`{_escape_mrkdwn(str(stamp))}`",
     ]
     if _is_new_week(previous, payload):
         bits.append("*New week slate*")
@@ -327,6 +428,8 @@ def _escape_mrkdwn(value: str) -> str:
 
 
 def _is_new_week(previous: Optional[Mapping[str, Any]], current: Mapping[str, Any]) -> bool:
+    if "new_week" in current:
+        return bool(current.get("new_week"))
     if not previous:
         return True
     return previous.get("week") != current.get("week")
@@ -338,6 +441,54 @@ def _webhook(explicit: Optional[str]) -> Optional[str]:
     if not value:
         return None
     return value.strip() or None
+
+
+def _bot_token(explicit: Optional[str]) -> Optional[str]:
+    load_env()
+    value = explicit if explicit is not None else os.getenv(BOT_TOKEN_ENV)
+    if not value:
+        return None
+    return value.strip() or None
+
+
+def _channel(explicit: Optional[str], payload: Mapping[str, Any]) -> Optional[str]:
+    load_env()
+    if explicit is not None and str(explicit).strip():
+        return str(explicit).strip()
+    meta = payload.get("slack")
+    if isinstance(meta, Mapping) and meta.get("channel"):
+        return str(meta["channel"]).strip() or None
+    value = os.getenv(CHANNEL_ENV)
+    if not value:
+        return None
+    return value.strip() or None
+
+
+def _message_ts(explicit: Optional[str], payload: Mapping[str, Any]) -> Optional[str]:
+    if explicit is not None and str(explicit).strip():
+        return str(explicit).strip()
+    meta = payload.get("slack")
+    if isinstance(meta, Mapping) and meta.get("ts"):
+        return str(meta["ts"]).strip() or None
+    return None
+
+
+def _slack_api(method: str, token: str, body: Mapping[str, Any]) -> Dict[str, Any]:
+    response = requests.post(
+        f"{SLACK_API}/{method}",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        json=body,
+        timeout=30,
+    )
+    response.raise_for_status()
+    data = response.json()
+    if not isinstance(data, dict) or not data.get("ok"):
+        error = data.get("error") if isinstance(data, dict) else data
+        raise RuntimeError(f"slack {method} failed: {error}")
+    return data
 
 
 def _post_json(url: str, body: Mapping[str, Any]) -> None:

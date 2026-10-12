@@ -12,6 +12,8 @@ def _payload(**overrides):
         "week": 1,
         "calibration": "none",
         "generated_at": "2026-09-05T19:03:06Z",
+        "run_id": "123",
+        "updated_stamp": "Updated 3:03 PM ET, run 123",
         "alerts": [],
         "games": [
             {
@@ -58,7 +60,7 @@ def test_success_blocks_include_header_stats_and_buttons() -> None:
     assert blocks[0]["text"]["text"] == "Pick'em · Week 1"
     context = blocks[1]["elements"][0]["text"]
     assert "calibration `none`" in context
-    assert "generated_at `2026-09-05T19:03:06Z`" in context
+    assert "`Updated 3:03 PM ET, run 123`" in context
     assert "New week slate" not in context
     table = blocks[2]
     assert [cell["text"] for cell in table["rows"][0]] == ["Conf", "Pick", "Opp", "Win", "Pin", "Pub"]
@@ -163,6 +165,8 @@ def test_post_skips_without_webhook(monkeypatch) -> None:
 
 
 def test_post_sends_blocks_payload(monkeypatch) -> None:
+    monkeypatch.delenv("SLACK_BOT_TOKEN", raising=False)
+    monkeypatch.delenv("SLACK_CHANNEL_ID", raising=False)
     captured = {}
 
     class FakeResponse:

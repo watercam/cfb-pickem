@@ -2,6 +2,9 @@
   "week": 1,
   "calibration": "none",
   "generated_at": "2026-09-07T07:06:18Z",
+  "run_id": "sample",
+  "updated_stamp": "Updated 3:06 AM ET, run sample",
+  "slack": null,
   "games": [
     {
       "game_id": "BAY @ AUB",

@@ -187,7 +187,7 @@
     <p class="lede">Loading…</p>
   </div>
   <script>
-    const ROOT_KEYS = ["week", "calibration", "generated_at", "games"];
+    const ROOT_KEYS = ["week", "calibration", "generated_at", "run_id", "updated_stamp", "games"];
     const GAME_KEYS = [
       "game_id", "pick", "opponent", "confidence", "p_current",
       "spread_move", "adj", "p_final", "flags", "public_pick_pct",
@@ -318,7 +318,7 @@
         const games = sortGames(payload.games);
         const playable = games.filter((g) => g.pick);
         const week = payload.week == null ? "—" : payload.week;
-        const stamp = fmtStamp(payload.generated_at);
+        const stamp = payload.updated_stamp || (fmtStamp(payload.generated_at) + ", run " + (payload.run_id || "unknown"));
         const exp = expectedPoints(playable);
         const soon = lockingSoon(playable, Date.now());
         const tb = payload.tiebreak || null;
@@ -361,7 +361,7 @@
         ).join("");
         app.innerHTML = `
           <h1>Week ${escapeHtml(week)} confidence card</h1>
-          <p class="lede">ESPN College Football Pick'em · scored ${escapeHtml(stamp)} from live Pinnacle no-vig moneylines. Movement adjustment is shown but not used for ranking (${escapeHtml(payload.calibration)}).</p>
+          <p class="lede">ESPN College Football Pick'em · ${escapeHtml(stamp)} from live Pinnacle no-vig moneylines. Movement adjustment is shown but not used for ranking (${escapeHtml(payload.calibration)}).</p>
           ${banners}
           <div class="stats">
             <div class="stat"><div class="value">10–1</div><div class="label">Confidence assignment</div></div>

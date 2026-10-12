@@ -11,10 +11,11 @@ else
 fi
 
 if [[ "${1:-}" == "--live" ]]; then
-  "$PYTHON" -m src.pickem.run --web
+  "$PYTHON" -m src.pickem.run --web --no-slack
 else
   FIXTURE="${1:-tests/fixtures/pickem_week.json}"
-  "$PYTHON" -m src.pickem.run --fixture "$FIXTURE" --web
+  "$PYTHON" -m src.pickem.run --fixture "$FIXTURE" --web --no-slack
 fi
 
-npx --yes netlify-cli deploy --dir=web --prod
+npx --yes netlify-cli deploy --dir=web --functions=netlify/functions --prod
+"$PYTHON" -m src.pickem.publish --from-web

@@ -19,6 +19,8 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      PICKEM_RUN_ID: ${{ github.run_id }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,14 +46,29 @@ jobs:
       - name: Rank live ESPN + Pinnacle slate
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: python -m src.pickem.run --web
+        run: python -m src.pickem.run --web --no-slack
 
       - name: Deploy Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: npx --yes netlify-cli deploy --dir=web --prod
+        run: npx --yes netlify-cli deploy --dir=web --functions=netlify/functions --prod
+
+      - name: Publish Slack from deployed JSON
+        id: publish
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          PICKEM_REFRESH_SECRET: ${{ secrets.PICKEM_REFRESH_SECRET }}
+        run: python -m src.pickem.publish --from-web
+
+      - name: Persist Slack message pointer
+        if: steps.publish.outputs.pointer_updated == 'true'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx --yes netlify-cli deploy --dir=web --functions=netlify/functions --prod
 
       - name: Slack on failure
         if: failure()

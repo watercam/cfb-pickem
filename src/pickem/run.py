@@ -16,11 +16,11 @@ from src.pickem.calibration import MovementCalibrator
 from src.pickem.odds import fetch_pinnacle_snapshots, snapshots_from_payloads
 from src.pickem.ranking import recommend_slate
 from src.pickem.slate import PICKEM_USER_AGENT, fetch_espn_slate, load_fixture
-from src.pickem.slack import post_pickem_update
+from src.pickem.stamp import stamp_payload
 from src.pickem.types import GameRecommendation, PickemResult
 from src.settings import get_api_keys, load_pickem_config, project_root
 
-DASHBOARD_ROOT_KEYS = ("week", "calibration", "generated_at", "games")
+DASHBOARD_ROOT_KEYS = ("week", "calibration", "generated_at", "run_id", "updated_stamp", "games")
 DASHBOARD_GAME_KEYS = (
     "game_id",
     "pick",
@@ -53,7 +53,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         help=f"Write dashboard JSON to {WEB_RECOMMENDATIONS}",
     )
     parser.add_argument("--config", type=Path, default=None, help="Override config/pickem.yaml")
-    parser.add_argument("--no-slack", action="store_true", help="Do not POST to SLACK_WEBHOOK_URL")
+    parser.add_argument(
+        "--no-slack",
+        action="store_true",
+        help="Ignored; Slack is published after Netlify deploy via src.pickem.publish",
+    )
     args = parser.parse_args(argv)
 
     config = load_pickem_config(args.config)
@@ -89,14 +93,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         ) or _load_previous(out_path)
     payload = _attach_previous_dashboard(previous, payload)
     payload["alerts"] = projection_alerts(previous, payload)
-    if not args.no_slack:
-        slate = config.get("slate") or {}
-        post_pickem_update(
-            payload,
-            previous=previous,
-            dashboard_url=str(slate.get("dashboard_url") or ""),
-            refresh_url=str(slate.get("refresh_url") or ""),
-        )
+    payload = stamp_payload(payload, previous=previous)
     if out_path is not None:
         _write_json(out_path, payload)
     if args.json:
