@@ -155,6 +155,7 @@ def test_refresh_workflow_is_cron_and_dispatch_only() -> None:
     assert "schedule:" in text
     assert "pull_request" not in text
     assert "pull_request_target" not in text
-    assert "python -m src.pickem.run --web" in text
+    assert "python -m src.pickem.run --web --no-slack" in text
     assert "--fixture" not in text
-    assert "netlify-cli deploy --dir=web --prod" in text
+    assert "netlify-cli deploy --dir=web --functions=netlify/functions --prod" in text
+    assert "python -m src.pickem.publish --from-web" in text

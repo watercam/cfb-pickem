@@ -1,2 +1,10 @@
 /recommendations.json
-  Cache-Control: no-cache
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+  CDN-Cache-Control: no-store
+  Netlify-CDN-Cache-Control: no-store
+
+/index.html
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+
+/
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
